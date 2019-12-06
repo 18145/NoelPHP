@@ -15,6 +15,8 @@
     <label for="msg">Message :</label>
     <textarea name="msg" id="msg"></textarea>
   </div>
-  <input type="submit" value="Clique-moi grand fou !" />
+  <div>
+    <input type="submit" value="Clique-moi grand fou !" />
+  </div>
   <input type="hidden" name="frmContact" />
 </form>
