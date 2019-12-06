@@ -1,1 +1,1 @@
-<h1>Contact</h1>
+<h1>Pour nous contacter</h1>
