@@ -43,5 +43,6 @@ if (isset($_POST['frmContact'])) {
 }
 
 else {
+  $nom = $prenom = $mail = $msg = "";
   require 'frmContact.php';
 }
