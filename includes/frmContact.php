@@ -13,6 +13,8 @@
     <label for="mail">e-mail :</label>
     <input type="email" name="mail" id="mail" />
   </div>
+  </fieldset>
+  <fieldset>
   <div>
     <label for="msg">Message :</label>
     <textarea name="msg" id="msg"></textarea>
