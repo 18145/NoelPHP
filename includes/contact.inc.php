@@ -37,9 +37,12 @@ if (isset($_POST['frmContact'])) {
   }
 
   else {
-    echo "Insertion en BDD";
-  }
+    $sql = "INSERT INTO clients
+  (nom, prenom, mail, message)
+  VALUES ('" . $nom . "', '" . $prenom . "', '" . $mail ."', '" . $msg ."')";
 
+
+  }
 }
 
 else {
