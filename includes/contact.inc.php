@@ -37,19 +37,30 @@ if (isset($_POST['frmContact'])) {
   }
 
   else {
-    $sql = "INSERT INTO clients
-    (nom, prenom, mail, message)
-    VALUES ('" . $nom . "', '" . $prenom . "', '" . $mail ."', '" . $msg ."')";
+    $sqlVerif = "SELECT COUNT(*) FROM clients
+    WHERE mail='" . $mail ."'";
+    $nbrOccurences = $pdo->query($sqlVerif)->fetchColumn();
 
-    $query = $pdo->prepare($sql);
-    $query->bindValue('nom', $nom, PDO::PARAM_STR);
-    $query->bindValue('prenom', $prenom, PDO::PARAM_STR);
-    $query->bindValue('mail', $mail, PDO::PARAM_STR);
-    $query->bindValue('message', $msg, PDO::PARAM_STR);
+    if ($nbrOccurences > 0) {
+      echo "Déjà dans la base";
+    }
 
-    $query->execute();
+    else {
 
-    echo "ENregistrement OK";
+        $sql = "INSERT INTO clients
+        (nom, prenom, mail, message)
+        VALUES ('" . $nom . "', '" . $prenom . "', '" . $mail ."', '" . $msg ."')";
+
+        $query = $pdo->prepare($sql);
+        $query->bindValue('nom', $nom, PDO::PARAM_STR);
+        $query->bindValue('prenom', $prenom, PDO::PARAM_STR);
+        $query->bindValue('mail', $mail, PDO::PARAM_STR);
+        $query->bindValue('message', $msg, PDO::PARAM_STR);
+
+        $query->execute();
+
+        echo "Enregistrement OK";
+      }
   }
 }
 
